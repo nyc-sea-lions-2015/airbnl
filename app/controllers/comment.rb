@@ -7,7 +7,7 @@ end
 get '/posts/:id/comments/new' do
   @the_post = Post.find_by(id: params[:id])
   if session[:user_id]
-    erb :"comment/new"
+    erb :"comment/new", layout: false
   else
     "Sorry, only AirbnL members can add comments"
   end
@@ -29,7 +29,7 @@ put '/posts/:id/comments/:commentid' do
   if @the_comment
     @the_comment.description = params[:description]
     if @the_comment.save!
-      redirect "/posts/#{@the_post.id}/comments"
+      redirect "/posts/#{@the_post.id}"
     else
       [500, "There was a problem with your update"]
     end
@@ -40,9 +40,11 @@ end
 
 post '/posts/:id/comments' do
   @the_post = Post.find_by(id: params[:id])
-  @new_comment = Comment.new(description: params[:description], post_id: @the_post.id)
+  @new_comment = Comment.new(description: params[:description], post_id: @the_post.id, user_id: session[:user_id])
+
   if @new_comment.save!
-    redirect "/posts/#{@the_post.id}/comments"
+    erb :"_addcomment", layout: false
+    # redirect "/posts/#{@the_post.id}"
   else
     [404, "Your comment couldn't be added."]
   end
@@ -57,4 +59,5 @@ delete '/posts/:id/comments/:commentid/delete' do
   else
     "Sorry, you can only delete your own comments!"
   end
+  redirect "/posts/#{@the_post.id}"
 end

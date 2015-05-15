@@ -1,27 +1,19 @@
 
-<div class="container">
-<div class="header">
-<% if session[:user_id] == nil %>
-<a href="/login">Login </a>
-| <a href="/signup">Sign up </a>
-<% elsif session[:user_id] %>
-| <a href="/logout">Logout </a>
+
+<div class="mainbody_usershow">
+
+
+<div id="userinfo">
+<h2> <%= @the_user.first_name.titleize %> <%= @the_user.last_name.titleize %> </h2>
+<p><%= @the_user.age %> years old </p>
+<p> <b>Description:</b> <%= @the_user.description %> </p>
+<p> <b>Languages spoken:</b> <%= @the_user.language %> </p>
+
+<% @the_user.posts.each do |p| %>
+<p><a href="/posts/<%=p.id %>">View their post (<%=p.id %>) </a></p>
 <% end %>
 </div>
 
-<div class="mainbody">
-<h1> User details: </h1>
-
-<center><img src="<%=@the_user.photo_url %>"/> </center>
-
-<p> First name: <%= @the_user.first_name %> </p>
-<p> Last name: <%= @the_user.last_name %> </p>
-<p> Age: <%= @the_user.age %> </p>
-<p> Description: <%= @the_user.description %> </p>
-<p> Languages: <%= @the_user.language %> </p>
+<img src="<%=@the_user.photo_url %>"/>
 
 
-
-<div class="footer">
-This website is protected under the MIT license-  Samantha G. copyright 2015
-</div>

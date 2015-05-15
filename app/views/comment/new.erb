@@ -1,16 +1,18 @@
 
 
-<div class="container">
-
 
 <% if session[:user_id] %>
 
 <b> Add your comment </b>
 
-<form id='commentform' action='/posts/<%=@the_post.id%>/comments' method='post'>
+<div id="newestcomm">
+
+<form id='<%=@the_post.id%>'  action='/posts/<%=@the_post.id%>/comments' method='post'>
   <input type='text' placeholder='description' name='description'/>
 <input type='submit' value='Add!'/>
 </form>
+
+</div>
 
 <% else %>
 <div class="sorry"> Sorry, only members can add comments. Please sign up at the link below:

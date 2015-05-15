@@ -1,16 +1,13 @@
 <div class="container">
-<div class="header">
-<% if session[:user_id] == nil %>
-<a href="/login">Login </a>
-| <a href="/signup">Sign up </a>
-<% elsif session[:user_id] %>
-| <a href="/logout">Logout </a>
-<% end %>
-</div>
 
-<div class="mainbody">
+<div class="mainbodyshow">
+<p><a href="/posts"> Return to posts </a></p>
+
 <h1><%= @the_post.title %> </h1>
 
+<p><img src="<%=@the_post.photo_url%>"/></p>
+
+<div id="basicpropinfo">
 Created by: <a href="/user/<%=@the_post.user_id%>"><%= @the_post.user.first_name %> <%= @the_post.user.last_name %></a>
 
 <p>Location: <%= @the_post.location %></p>
@@ -18,8 +15,9 @@ Created by: <a href="/user/<%=@the_post.user_id%>"><%= @the_post.user.first_name
 <p><em>Available: <%= @the_post.start_date %> to <%= @the_post.end_date %> </em></p>
 
 <p>Price: $<%= @the_post.price %> per day.</p>
+</div>
 
-<p><img src="<%=@the_post.photo_url%>"/></p>
+<div id="propmoreinfo">
 
 <p> <%= @the_post.description %> </p>
 
@@ -50,6 +48,5 @@ Created by: <a href="/user/<%=@the_post.user_id%>"><%= @the_post.user.first_name
 </div>
 
 
-<div class="footer">
-This website is protected under the MIT license-  Samantha G. copyright 2015
+</div>
 </div>

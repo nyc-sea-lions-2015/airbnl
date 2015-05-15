@@ -1,12 +1,4 @@
 <div class="container">
-<div class="header">
-<% if session[:user_id] == nil %>
-<a href="/login">Login </a>
-| <a href="/signup">Sign up </a>
-<% elsif session[:user_id] %>
-| <a href="/logout">Logout </a>
-<% end %>
-</div>
 
 <% if session[:user_id] == @the_post.user_id %>
 
@@ -35,5 +27,4 @@
 <% end %>
 
 
-<div class="footer"></div>
 </div>

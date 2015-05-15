@@ -1,12 +1,5 @@
-<div class="container">
-<div class="header">
-<% if session[:user_id] == nil %>
-<a href="/login">Login </a>
-| <a href="/signup">Sign up </a>
-<% elsif session[:user_id] %>
-| <a href="/logout">Logout </a>
-<% end %>
-</div>
+
+<div id="new_post">
 
 <% if session[:user_id] %>
 
@@ -15,14 +8,21 @@
 
 
 <form action="/posts" method="post">
-Title: <input type="text" name="title"/>
-Location: <input type="text" name="location"/><br>
-Description: <input type="text" name="description"/><br>
-Price per day: <input type="text" name="price"/><br>
-Start date: <input type="text" name="startdate"/><br>
-End date: <input type="text" name="enddate"/><br>
-Photo URL: <input type="text" name="photourl"/><br>
-<input type="submit" value="Add my post"/>
+<b>Title:</b> <br>
+<input type="text" name="title"/><br>
+<b>Location:</b> <br>
+<input type="text" name="location"/><br>
+<b>Description:</b> <br>
+<input type="text" name="description"/><br>
+<b>Price per day:</b> <br>
+<input type="text" name="price"/><br>
+<b>Start date:</b> <br>
+<input type="text" name="startdate"/><br>
+<b>End date:</b> <br>
+<input type="text" name="enddate"/><br>
+<b>Photo URL:</b> <br>
+<input type="text" name="photourl"/>
+<center><input type="submit" value="Add my post"/></center>
 </form>
 
 <% else %>
@@ -33,7 +33,4 @@ Photo URL: <input type="text" name="photourl"/><br>
 
 <% end %>
 
-
-
-<div class="footer"></div>
 </div>

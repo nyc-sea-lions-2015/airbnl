@@ -18,6 +18,27 @@
   <title></title>
 </head>
 <body>
+
+<div class="header">
+<a href="/posts"><div id="bizname"> AirB&L </div>
+<img id="logo" src="http://wendypatton.com/wp-content/uploads/2014/08/house-logo-png.png"/></a>
+  <span class="links">
+<% if session[:user_id] == nil %>
+<a id="log" href="/login">Login </a>
+ <a id='sign' href="/signup">Sign up </a>
+<% elsif session[:user_id] %>
+<a href="/user/<%= session[:user_id] %>">My profile</a>
+ <a href="/logout">Logout </a>
+<% end %>
+<a href="/posts/new">Rent your place</a>
+</div>
+</div>
+
   <%= yield %>
+
+  <div class="footer">
+This website is protected under the MIT license-  Samantha G. copyright 2015
+</div>
+
 </body>
 </html>

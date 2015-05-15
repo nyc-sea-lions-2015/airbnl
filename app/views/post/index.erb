@@ -1,42 +1,31 @@
 <div class="container">
-<div class="header">
-<% if session[:user_id] == nil %>
-<a href="/login">Login </a>
-| <a href="/signup">Sign up </a>
-<% elsif session[:user_id] %>
-| <a href="/logout">Logout </a>
-<% end %>
 
 
-</div>
 
-
-<div class="mainbody">
+<div class="mainbodyindex">
   <p><div class="welcome">
   <% if session[:user_id] %>
 Good to see you again, <%= User.find_by(id: session[:user_id]).first_name %>!
 <% end %>
 </div></p>
 
-<img id="logo" src="http://wendypatton.com/wp-content/uploads/2014/08/house-logo-png.png"/>
-<h1> Welcome to AirBNL! </h1>
-  <h2> Current current rentals: </h2>
+<div id="rental-list">
+<h1> Latest Rentals </h1>
 
-<ol>
+
+<ul>
 <% @all_posts.each do |p| %>
  <p><li>
   <a href="/posts/<%=p.id%>"><%= p.title %>
  </a></li>
 <em><%= p.location %></em>
 </p>
+<hr>
+
  <% end %>
-</ol>
+</ul>
 
-
-<p><center><a href="/posts/new">Add your rental!</a></center><p>
+</div>
 </div>
 
-<div class="footer">
-This website is protected under the MIT license-  Samantha G. copyright 2015
-</div>
 </div>

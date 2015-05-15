@@ -48,7 +48,9 @@ put '/posts/:id' do
 end
 
 post '/posts' do
-  @new_post = Post.new(title: params[:title], location: params[:location], description: params[:description], price: params[:price], start_date: params[:startdate], end_date: params[:enddate], photo_url: params[:photourl])
+  #if any of these are nil, page breaks, solution?
+  @new_post = Post.new(title: params[:title], location: params[:location], description: params[:description], price: params[:price], start_date: params[:startdate], end_date: params[:enddate], photo_url: params[:photourl], user_id: session[:user_id])
+
   if @new_post.save
     redirect "/posts/#{@new_post.id}"
   else
