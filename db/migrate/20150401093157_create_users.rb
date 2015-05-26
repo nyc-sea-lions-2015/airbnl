@@ -9,6 +9,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :password_digest, null:false
       t.string :language, null:false
       t.text :description
+      t.string :facebook_url
 
       t.timestamps
     end

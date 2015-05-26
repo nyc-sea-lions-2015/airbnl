@@ -1,13 +1,12 @@
 
 
-<div class="container">
 
 
 <% if session[:user_id] == @the_comment.user_id %>
 
 <h2>Edit your comment</h2>
 
-<form action='/posts/<%=@the_post.id%>/comments/<%=@the_comment.id%>' method='post'>
+<form id='editcomm' action='/posts/<%=@the_post.id%>/comments/<%=@the_comment.id%>' method='post'>
   <input type="hidden" name="_method" value="put">
   <input type='text' name='description' value=<%=@the_comment.description%>>
 <input type='submit' value='Update'/>
@@ -20,5 +19,3 @@
 
 <% end %>
 
-
-</div>

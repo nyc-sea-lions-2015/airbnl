@@ -10,6 +10,7 @@
 
 <div id="all_comments">
   <% @the_post.comments.each do |c| %>
+  <div class="comm"+c.id>
   <p> "<%= c.description %>"
   <div class="comment_author_detail">
   By: <%= c.user.first_name %> | Last updated: <%= c.updated_at %>
@@ -17,13 +18,14 @@
     ______________________
   </p>
    </div>
+    </div>
 
 <% if session[:user_id] == c.user_id %>
-<form action="/posts/<%=@the_post.id%>/comments/<%=c.id%>/edit">
+<form id='firsteditcomm' action="/posts/<%=@the_post.id%>/comments/<%=c.id%>/edit">
     <input type="submit" value="Edit comment">
 </form>
 <!-- <p><a href="/posts/<%=@the_post.id%>/comments/<%=c.id%>/edit">Edit my comment</a></p> -->
-<form action='/posts/<%=@the_post.id%>/comments/<%=c.id%>/delete' method='post'>
+<form id='deletecomm' data: {id: <%=@the_post.id%>} action='/posts/<%=@the_post.id%>/comments/<%=c.id%>/delete' method='post'>
   <input type='hidden' name='_method' value='delete'/>
   <input type='submit' value='Delete my comment'>
 </form>

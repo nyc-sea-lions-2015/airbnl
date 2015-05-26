@@ -1,6 +1,6 @@
 <div id="signup_form">
 
-<h2> Sign up </h2>
+<h2> Create your account </h2>
 <form id ="signit" action='/signup' method='post'>
   <b>First name: </b>
   <br><input type='text' name='user[first_name]'/><br>
@@ -8,24 +8,29 @@
   <br><input type='text' name='user[last_name]'/><br>
   <b>Age: </b>
    <br><input type='text' name='user[age]'/><br>
-   <br>
-  <b>Language to practice:  </b>
+
+
+  <b>Language spoken:  </b>
   <br><input type='text' name='user[language]'/><br>
-  &nbsp
+
   <b>Description: </b>
    <br><input type='text' name='user[description]'/><br>
 
   <b>Email:</b>
   <br><input type='text' name='user[email]'/><br>
-  <br>
+
+
   <b>Password: </b>
    <br><input type='password' name='user[password]'/><br>
+
   <b>Confirm password: </b>
    <br><input type='password' name='user[password_confirmation]'/><br>
   <b>URL of your photo: </b>
    <br><input type='text' name='user[photo_url]'/><br>
-
-  <input type='submit' value='Sign up!'/>
+  <b>Your Facebook: </b>
+   <br><input type='text' name='user[facebook_url]'/><br>
+   <br>
+ <center> <input type='submit' value='Sign up!'/></center>
 </form>
 
 

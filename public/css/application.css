@@ -184,9 +184,9 @@ a:link, a:visited{
 
 
 #signit {
-    -webkit-column-count: 3; /* Chrome, Safari, Opera */
-    -moz-column-count: 3; /* Firefox */
-    column-count: 3;
+    -webkit-column-count: 4; /* Chrome, Safari, Opera */
+    -moz-column-count: 4; /* Firefox */
+    column-count: 4;
         -webkit-column-gap: 20px; /* Chrome, Safari, Opera */
     -moz-column-gap: 20px; /* Firefox */
     column-gap: 20px;
@@ -205,6 +205,8 @@ a:link, a:visited{
 /*  position:absolute;*/
   bottom:0;
   left:0;
+  position: fixed;
+  bottom: 0;
 }
 
 #comments_section {
@@ -226,13 +228,21 @@ a:link, a:visited{
 }
 
 .mainbody_usershow{
-  background: url("../white-room.jpg") no-repeat 100% 100% fixed;
+  background: url("../summerhaus.jpg") no-repeat 100% 100% fixed;
   background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   -webkit-background-size: cover;
 }
 
+
+#userinfo {
+    background: url("../summerhaus.jpg") no-repeat 100% 100% fixed;
+      background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover;
+}
 
 .mainbody_usershow #userinfo{
   margin-top: 50px;
